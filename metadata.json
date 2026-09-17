@@ -1,0 +1,6 @@
+{
+  "name": "Inbox Triage",
+  "description": "A premium AI-powered email priority assistant that connects to your Gmail to categorize and summarize your unread emails.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
