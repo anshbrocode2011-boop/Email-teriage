@@ -43,6 +43,11 @@ function getAi(): GoogleGenAI {
   return aiClient;
 }
 
+// Google Search Console / Google OAuth site verification file route
+app.get('/google40dbdb025cec5935.html', (req, res) => {
+  res.type('text/html').send('google-site-verification: google40dbdb025cec5935.html\n');
+});
+
 // Health check endpoint
 app.get('/api/health', (req, res) => {
   res.json({ status: 'ok', hasGeminiKey: Boolean(process.env.GEMINI_API_KEY) });

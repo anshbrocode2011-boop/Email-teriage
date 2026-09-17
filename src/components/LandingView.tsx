@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { LegalModal } from './LegalModal';
 import {
   Mail,
   Shield,
@@ -122,6 +123,7 @@ export const LandingView: React.FC<LandingViewProps> = ({
   const [billingCycle, setBillingCycle] = useState<'monthly' | 'annual'>('annual');
   const [selectedPlan, setSelectedPlan] = useState<PricingTierId>('pro');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [legalModalType, setLegalModalType] = useState<'privacy' | 'terms' | 'google-disclosure' | null>(null);
 
   const scrollToSection = (id: string) => {
     setMobileMenuOpen(false);
@@ -172,6 +174,18 @@ export const LandingView: React.FC<LandingViewProps> = ({
               className="hover:text-indigo-600 transition-colors cursor-pointer"
             >
               Security & Privacy
+            </button>
+            <button
+              onClick={() => setLegalModalType('privacy')}
+              className="hover:text-indigo-600 transition-colors cursor-pointer"
+            >
+              Privacy Policy
+            </button>
+            <button
+              onClick={() => setLegalModalType('google-disclosure')}
+              className="text-indigo-600 hover:text-indigo-700 transition-colors cursor-pointer font-bold"
+            >
+              Google API Disclosure
             </button>
             {onExploreDemo && (
               <button
@@ -248,6 +262,24 @@ export const LandingView: React.FC<LandingViewProps> = ({
                 className="text-left px-3 py-2 rounded-lg hover:bg-slate-50 hover:text-indigo-600"
               >
                 Security & Privacy
+              </button>
+              <button
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  setLegalModalType('privacy');
+                }}
+                className="text-left px-3 py-2 rounded-lg hover:bg-slate-50 hover:text-indigo-600"
+              >
+                Privacy Policy
+              </button>
+              <button
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  setLegalModalType('google-disclosure');
+                }}
+                className="text-left px-3 py-2 rounded-lg hover:bg-slate-50 text-indigo-600 font-semibold"
+              >
+                Google API Disclosure
               </button>
               {onExploreDemo && (
                 <button
@@ -753,6 +785,134 @@ export const LandingView: React.FC<LandingViewProps> = ({
           </div>
         </div>
       </section>
+
+      {/* COMPREHENSIVE GOOGLE VERIFICATION & BRANDING FOOTER */}
+      <footer className="bg-slate-900 text-slate-400 py-16 px-4 sm:px-6 border-t border-slate-800">
+        <div className="max-w-6xl mx-auto space-y-12">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-xs leading-relaxed">
+            {/* Column 1: Brand & Identity */}
+            <div className="space-y-3 md:col-span-1">
+              <div className="flex items-center gap-2.5 text-white">
+                <div className="w-8 h-8 rounded-xl bg-indigo-600 text-white flex items-center justify-center font-bold">
+                  <Inbox className="w-4 h-4" />
+                </div>
+                <span className="font-extrabold text-base tracking-tight text-white">Inbox Triage</span>
+              </div>
+              <p className="text-slate-400 text-xs">
+                Autonomous, read-only AI executive email prioritization built with Google Gemini intelligence.
+              </p>
+              <div className="pt-1 flex items-center gap-2 text-[11px] text-emerald-400">
+                <ShieldCheck className="w-4 h-4" />
+                <span>Google API Limited Use Compliant</span>
+              </div>
+            </div>
+
+            {/* Column 2: Legal & Google Disclosures */}
+            <div className="space-y-2.5">
+              <h4 className="font-bold text-white uppercase tracking-wider text-[11px]">Legal & Compliance</h4>
+              <ul className="space-y-2">
+                <li>
+                  <button
+                    onClick={() => setLegalModalType('privacy')}
+                    className="hover:text-white transition-colors cursor-pointer text-left"
+                  >
+                    Privacy Policy
+                  </button>
+                </li>
+                <li>
+                  <button
+                    onClick={() => setLegalModalType('terms')}
+                    className="hover:text-white transition-colors cursor-pointer text-left"
+                  >
+                    Terms of Service
+                  </button>
+                </li>
+                <li>
+                  <button
+                    onClick={() => setLegalModalType('google-disclosure')}
+                    className="hover:text-indigo-400 font-semibold transition-colors cursor-pointer text-left flex items-center gap-1 text-indigo-300"
+                  >
+                    <span>Google API Limited Use Disclosure</span>
+                  </button>
+                </li>
+              </ul>
+            </div>
+
+            {/* Column 3: Architecture & Security */}
+            <div className="space-y-2.5">
+              <h4 className="font-bold text-white uppercase tracking-wider text-[11px]">Data Security</h4>
+              <ul className="space-y-2 text-slate-400">
+                <li className="flex items-center gap-1.5">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-indigo-400 shrink-0" />
+                  <span>Strictly <code className="text-slate-300">gmail.readonly</code></span>
+                </li>
+                <li className="flex items-center gap-1.5">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-indigo-400 shrink-0" />
+                  <span>Transient in-memory execution</span>
+                </li>
+                <li className="flex items-center gap-1.5">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-indigo-400 shrink-0" />
+                  <span>No training on user email content</span>
+                </li>
+                <li className="flex items-center gap-1.5">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-indigo-400 shrink-0" />
+                  <span>Zero 3rd-party data transfer</span>
+                </li>
+              </ul>
+            </div>
+
+            {/* Column 4: Contact & Verification */}
+            <div className="space-y-2.5">
+              <h4 className="font-bold text-white uppercase tracking-wider text-[11px]">Support & Verification</h4>
+              <p className="text-slate-400">
+                Inquiries regarding Google OAuth consent verification, data deletion, or security audit inquiries:
+              </p>
+              <p className="font-medium text-slate-200">
+                support@inboxtriage.app
+              </p>
+              <p className="text-[11px] text-slate-500">
+                Google Site Verification: <code className="text-slate-400">google40dbdb025cec5935</code>
+              </p>
+            </div>
+          </div>
+
+          {/* Bottom Disclaimer Banner */}
+          <div className="pt-8 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-slate-500">
+            <p>
+              © {new Date().getFullYear()} Inbox Triage. All rights reserved. Google, Gmail, and Google Workspace are trademarks of Google LLC.
+            </p>
+            <div className="flex items-center gap-4">
+              <button
+                onClick={() => setLegalModalType('privacy')}
+                className="hover:text-slate-300 underline underline-offset-2 cursor-pointer"
+              >
+                Privacy
+              </button>
+              <button
+                onClick={() => setLegalModalType('terms')}
+                className="hover:text-slate-300 underline underline-offset-2 cursor-pointer"
+              >
+                Terms
+              </button>
+              <button
+                onClick={() => setLegalModalType('google-disclosure')}
+                className="hover:text-slate-300 underline underline-offset-2 cursor-pointer text-indigo-400"
+              >
+                Google API Disclosure
+              </button>
+            </div>
+          </div>
+        </div>
+      </footer>
+
+      {/* Render Legal & Privacy Modal */}
+      {legalModalType && (
+        <LegalModal
+          isOpen={Boolean(legalModalType)}
+          onClose={() => setLegalModalType(null)}
+          type={legalModalType}
+        />
+      )}
     </div>
   );
 };

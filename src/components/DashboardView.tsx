@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { LegalModal } from './LegalModal';
 import {
   Sparkles,
   Inbox,
@@ -13,7 +14,8 @@ import {
   Search,
   CheckCircle2,
   PieChart as PieIcon,
-  Filter
+  Filter,
+  ShieldCheck
 } from 'lucide-react';
 import type { EmailItem, EmailCategory, TriageStats } from '../types';
 import { EmailCard } from './EmailCard';
@@ -55,6 +57,8 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
   userEmail,
   isRefreshing,
 }) => {
+  const [legalModalType, setLegalModalType] = useState<'privacy' | 'terms' | 'google-disclosure' | null>(null);
+
   // Filter and search
   const filteredEmails = emails.filter((item) => {
     // Check filter tab
@@ -573,6 +577,43 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
           </div>
         )}
       </div>
+
+      {/* Compliance & Verification Footer */}
+      <footer className="mt-12 py-8 border-t border-slate-200 text-xs text-slate-500 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="flex items-center gap-2">
+          <ShieldCheck className="w-4 h-4 text-emerald-600" />
+          <span>Google API Limited Use & Privacy Compliant</span>
+        </div>
+        <div className="flex items-center gap-4">
+          <button
+            onClick={() => setLegalModalType('privacy')}
+            className="hover:text-slate-800 underline underline-offset-2 cursor-pointer"
+          >
+            Privacy Policy
+          </button>
+          <button
+            onClick={() => setLegalModalType('terms')}
+            className="hover:text-slate-800 underline underline-offset-2 cursor-pointer"
+          >
+            Terms of Service
+          </button>
+          <button
+            onClick={() => setLegalModalType('google-disclosure')}
+            className="hover:text-indigo-600 text-indigo-700 font-medium underline underline-offset-2 cursor-pointer"
+          >
+            Google API Disclosure
+          </button>
+        </div>
+      </footer>
+
+      {/* Legal Modal */}
+      {legalModalType && (
+        <LegalModal
+          isOpen={Boolean(legalModalType)}
+          onClose={() => setLegalModalType(null)}
+          type={legalModalType}
+        />
+      )}
     </div>
   );
 };
