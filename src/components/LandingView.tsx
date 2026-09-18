@@ -143,7 +143,7 @@ export const LandingView: React.FC<LandingViewProps> = ({
             <div>
               <div className="flex items-center gap-2">
                 <span className="font-extrabold text-base sm:text-lg text-slate-900 tracking-tight">
-                  Inbox Triage
+                  Email teriage
                 </span>
                 <span className="hidden xs:inline-block text-[10px] font-bold uppercase tracking-wider text-indigo-700 bg-indigo-50 border border-indigo-200/60 px-2 py-0.5 rounded-full">
                   AI
@@ -322,7 +322,7 @@ export const LandingView: React.FC<LandingViewProps> = ({
               </h1>
 
               <p className="text-sm sm:text-base text-slate-600 leading-relaxed max-w-xl mx-auto lg:mx-0">
-                Inbox Triage autonomously scans incoming unread messages, categorizes them into
+                <strong>Email teriage</strong> autonomously scans incoming unread messages, categorizes them into
                 <strong> Urgent</strong>, <strong>Worth a Look</strong>, <strong>Can Wait</strong>, and <strong>Ignore</strong>,
                 and prepares a concise 1-minute morning briefing.
               </p>
@@ -796,7 +796,7 @@ export const LandingView: React.FC<LandingViewProps> = ({
                 <div className="w-8 h-8 rounded-xl bg-indigo-600 text-white flex items-center justify-center font-bold">
                   <Inbox className="w-4 h-4" />
                 </div>
-                <span className="font-extrabold text-base tracking-tight text-white">Inbox Triage</span>
+                <span className="font-extrabold text-base tracking-tight text-white">Email teriage</span>
               </div>
               <p className="text-slate-400 text-xs">
                 Autonomous, read-only AI executive email prioritization built with Google Gemini intelligence.
@@ -812,28 +812,34 @@ export const LandingView: React.FC<LandingViewProps> = ({
               <h4 className="font-bold text-white uppercase tracking-wider text-[11px]">Legal & Compliance</h4>
               <ul className="space-y-2">
                 <li>
-                  <button
-                    onClick={() => setLegalModalType('privacy')}
-                    className="hover:text-white transition-colors cursor-pointer text-left"
+                  <a
+                    href="/privacy"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="hover:text-white transition-colors cursor-pointer text-left block"
                   >
                     Privacy Policy
-                  </button>
+                  </a>
                 </li>
                 <li>
-                  <button
-                    onClick={() => setLegalModalType('terms')}
-                    className="hover:text-white transition-colors cursor-pointer text-left"
+                  <a
+                    href="/terms"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="hover:text-white transition-colors cursor-pointer text-left block"
                   >
                     Terms of Service
-                  </button>
+                  </a>
                 </li>
                 <li>
-                  <button
-                    onClick={() => setLegalModalType('google-disclosure')}
+                  <a
+                    href="/google-api-disclosure"
+                    target="_blank"
+                    rel="noreferrer"
                     className="hover:text-indigo-400 font-semibold transition-colors cursor-pointer text-left flex items-center gap-1 text-indigo-300"
                   >
                     <span>Google API Limited Use Disclosure</span>
-                  </button>
+                  </a>
                 </li>
               </ul>
             </div>
@@ -879,27 +885,33 @@ export const LandingView: React.FC<LandingViewProps> = ({
           {/* Bottom Disclaimer Banner */}
           <div className="pt-8 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-slate-500">
             <p>
-              © {new Date().getFullYear()} Inbox Triage. All rights reserved. Google, Gmail, and Google Workspace are trademarks of Google LLC.
+              © {new Date().getFullYear()} Email teriage. All rights reserved. Google, Gmail, and Google Workspace are trademarks of Google LLC.
             </p>
             <div className="flex items-center gap-4">
-              <button
-                onClick={() => setLegalModalType('privacy')}
+              <a
+                href="/privacy"
+                target="_blank"
+                rel="noreferrer"
                 className="hover:text-slate-300 underline underline-offset-2 cursor-pointer"
               >
                 Privacy
-              </button>
-              <button
-                onClick={() => setLegalModalType('terms')}
+              </a>
+              <a
+                href="/terms"
+                target="_blank"
+                rel="noreferrer"
                 className="hover:text-slate-300 underline underline-offset-2 cursor-pointer"
               >
                 Terms
-              </button>
-              <button
-                onClick={() => setLegalModalType('google-disclosure')}
+              </a>
+              <a
+                href="/google-api-disclosure"
+                target="_blank"
+                rel="noreferrer"
                 className="hover:text-slate-300 underline underline-offset-2 cursor-pointer text-indigo-400"
               >
                 Google API Disclosure
-              </button>
+              </a>
             </div>
           </div>
         </div>

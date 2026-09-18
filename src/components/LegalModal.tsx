@@ -34,7 +34,7 @@ export const LegalModal: React.FC<LegalModalProps> = ({ isOpen, onClose, type })
                 {type === 'google-disclosure' && 'Google API Limited Use & Security Disclosure'}
               </h2>
               <p className="text-xs text-slate-500">
-                Inbox Triage • Last updated: September 2026
+                Email teriage • Last updated: September 2026
               </p>
             </div>
           </div>
@@ -57,7 +57,7 @@ export const LegalModal: React.FC<LegalModalProps> = ({ isOpen, onClose, type })
                   Google API Services User Data Policy Compliance Summary
                 </p>
                 <p>
-                  Inbox Triage's use and transfer to any other app of information received from Google APIs adheres to the{' '}
+                  <strong>Email teriage</strong>'s use and transfer to any other app of information received from Google APIs adheres to the{' '}
                   <a
                     href="https://developers.google.com/terms/api-services-user-data-policy"
                     target="_blank"
@@ -75,7 +75,7 @@ export const LegalModal: React.FC<LegalModalProps> = ({ isOpen, onClose, type })
                   1. Information We Access
                 </h3>
                 <p>
-                  When you authenticate via Google OAuth, Inbox Triage requests access strictly to the{' '}
+                  When you authenticate via Google OAuth, <strong>Email teriage</strong> requests access strictly to the{' '}
                   <code className="px-1.5 py-0.5 bg-slate-100 rounded text-xs text-slate-800 font-mono">
                     https://www.googleapis.com/auth/gmail.readonly
                   </code>{' '}
@@ -105,7 +105,7 @@ export const LegalModal: React.FC<LegalModalProps> = ({ isOpen, onClose, type })
                   3. In-Memory Processing & Zero Permanent Storage of Email Content
                 </h3>
                 <p>
-                  Inbox Triage processes email bodies <strong>transiently in memory</strong>. Your email contents are never stored on any permanent server database, never serialized to disk, and never shared with third parties. Once your browser session ends or you disconnect your account, access tokens are flushed.
+                  <strong>Email teriage</strong> processes email bodies <strong>transiently in memory</strong>. Your email contents are never stored on any permanent server database, never serialized to disk, and never shared with third parties. Once your browser session ends or you disconnect your account, access tokens are flushed.
                 </p>
               </section>
 
@@ -123,7 +123,7 @@ export const LegalModal: React.FC<LegalModalProps> = ({ isOpen, onClose, type })
                   5. Revocation and Data Deletion
                 </h3>
                 <p>
-                  You can revoke Inbox Triage's access at any time directly through your{' '}
+                  You can revoke <strong>Email teriage</strong>'s access at any time directly through your{' '}
                   <a
                     href="https://myaccount.google.com/permissions"
                     target="_blank"
@@ -142,7 +142,7 @@ export const LegalModal: React.FC<LegalModalProps> = ({ isOpen, onClose, type })
                 </h3>
                 <p className="text-xs text-slate-600">
                   For privacy inquiries, audit requests, or data deletion confirmations, reach our team at{' '}
-                  <span className="font-semibold text-slate-900">support@inboxtriage.app</span> or submit through the in-app help desk.
+                  <span className="font-semibold text-slate-900">support@inboxtriage.app</span> or <span className="font-semibold text-slate-900">anshbrocode2011@gmail.com</span>.
                 </p>
               </section>
             </>
@@ -155,7 +155,7 @@ export const LegalModal: React.FC<LegalModalProps> = ({ isOpen, onClose, type })
                   1. Agreement to Terms
                 </h3>
                 <p>
-                  By accessing or using Inbox Triage, you agree to be bound by these Terms of Service. If you disagree with any part of these terms, you may not access the service.
+                  By accessing or using <strong>Email teriage</strong>, you agree to be bound by these Terms of Service. If you disagree with any part of these terms, you may not access the service.
                 </p>
               </section>
 
@@ -164,7 +164,7 @@ export const LegalModal: React.FC<LegalModalProps> = ({ isOpen, onClose, type })
                   2. Description of Service
                 </h3>
                 <p>
-                  Inbox Triage is a productivity assistant designed to synthesize and prioritize email messages. The service provides read-only analysis to aid communication workflow efficiency.
+                  <strong>Email teriage</strong> is a productivity assistant designed to synthesize and prioritize email messages. The service provides read-only analysis to aid communication workflow efficiency.
                 </p>
               </section>
 
@@ -182,7 +182,7 @@ export const LegalModal: React.FC<LegalModalProps> = ({ isOpen, onClose, type })
                   4. Intellectual Property & Trademarks
                 </h3>
                 <p className="text-xs text-slate-600">
-                  Gmail and Google Workspace are registered trademarks of Google LLC. Inbox Triage is an independent application and is not endorsed by or affiliated with Google LLC.
+                  Gmail and Google Workspace are registered trademarks of Google LLC. <strong>Email teriage</strong> is an independent application and is not endorsed by or affiliated with Google LLC.
                 </p>
               </section>
 
@@ -191,7 +191,7 @@ export const LegalModal: React.FC<LegalModalProps> = ({ isOpen, onClose, type })
                   5. Limitation of Liability
                 </h3>
                 <p className="text-xs text-slate-600">
-                  The service is provided on an "AS IS" and "AS AVAILABLE" basis. Inbox Triage shall not be liable for any indirect, incidental, special, consequential, or punitive damages resulting from your use of the service.
+                  The service is provided on an "AS IS" and "AS AVAILABLE" basis. <strong>Email teriage</strong> shall not be liable for any indirect, incidental, special, consequential, or punitive damages resulting from your use of the service.
                 </p>
               </section>
             </>
@@ -228,7 +228,7 @@ export const LegalModal: React.FC<LegalModalProps> = ({ isOpen, onClose, type })
                 <ul className="space-y-2 text-xs text-slate-600">
                   <li className="flex items-start gap-2">
                     <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
-                    <span><strong>No Secondary Use:</strong> Data accessed via Gmail API is strictly used to provide or improve prominent user-facing triage features visible in the Inbox Triage dashboard.</span>
+                    <span><strong>No Secondary Use:</strong> Data accessed via Gmail API is strictly used to provide or improve prominent user-facing triage features visible in the <strong>Email teriage</strong> dashboard.</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />

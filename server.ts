@@ -1,5 +1,6 @@
 import express from 'express';
 import path from 'path';
+import fs from 'fs';
 import crypto from 'crypto';
 import dotenv from 'dotenv';
 import Razorpay from 'razorpay';
@@ -43,9 +44,44 @@ function getAi(): GoogleGenAI {
   return aiClient;
 }
 
-// Google Search Console / Google OAuth site verification file route
+// Google Search Console / Google OAuth site verification file routes
 app.get('/google40dbdb025cec5935.html', (req, res) => {
   res.type('text/html').send('google-site-verification: google40dbdb025cec5935.html\n');
+});
+
+// Dynamic fallback for any Google site verification file format
+app.get('/google:hash.html', (req, res) => {
+  const hash = req.params.hash;
+  res.type('text/html').send(`google-site-verification: google${hash}.html\n`);
+});
+
+// Helper to serve public/dist legal HTML files reliably
+function serveLegalFile(res: express.Response, filename: string) {
+  const possiblePaths = [
+    path.join(process.cwd(), 'dist', filename),
+    path.join(process.cwd(), 'public', filename),
+    path.join(__dirname, 'public', filename),
+    path.join(__dirname, 'dist', filename),
+  ];
+  for (const filePath of possiblePaths) {
+    if (fs.existsSync(filePath)) {
+      return res.sendFile(filePath);
+    }
+  }
+  return res.status(404).send(`${filename} not found`);
+}
+
+// Standalone verification routes for Google OAuth Branding team review
+app.get(['/privacy', '/privacy.html', '/privacy-policy'], (req, res) => {
+  serveLegalFile(res, 'privacy.html');
+});
+
+app.get(['/terms', '/terms.html', '/terms-of-service'], (req, res) => {
+  serveLegalFile(res, 'terms.html');
+});
+
+app.get('/google-api-disclosure', (req, res) => {
+  serveLegalFile(res, 'privacy.html');
 });
 
 // Health check endpoint
