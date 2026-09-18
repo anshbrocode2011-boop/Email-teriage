@@ -49,6 +49,10 @@ app.get('/google40dbdb025cec5935.html', (req, res) => {
   res.type('text/html').send('google-site-verification: google40dbdb025cec5935.html\n');
 });
 
+app.get(['/googlezkx_1P-4KWCQNEAslM9VAapcbBNO7qPeOwGZHSuGZog.html', '/zkx_1P-4KWCQNEAslM9VAapcbBNO7qPeOwGZHSuGZog.html'], (req, res) => {
+  res.type('text/html').send('google-site-verification: zkx_1P-4KWCQNEAslM9VAapcbBNO7qPeOwGZHSuGZog\n');
+});
+
 // Dynamic fallback for any Google site verification file format
 app.get('/google:hash.html', (req, res) => {
   const hash = req.params.hash;
